@@ -55,6 +55,105 @@
         .contact-link { color: var(--gold); text-decoration: none; font-weight: bold; }
         
         @media (max-width: 768px) { .math-section { grid-template-columns: 1fr; } .new-time { font-size: 1.8em; } }
+
+
+/* --- मोबाइल फ्रेंडली CSS (सिर्फ डिज़ाइन सुधार) --- */
+
+:root { --gold: #ffd700; --neon: #00ff00; --bg: #050505; --red: #ff4d4d; --blue: #00d4ff; }
+
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background: var(--bg); 
+    color: #fff; 
+    text-align: center; 
+    padding: 10px; 
+    margin: 0; 
+    overflow-x: hidden; /* स्क्रीन से बाहर कंटेंट न जाए */
+}
+
+.container { 
+    border: 5px solid var(--gold); 
+    padding: 15px; 
+    border-radius: 25px; 
+    background: #111; 
+    max-width: 100%; 
+    display: inline-block; 
+    box-sizing: border-box; /* पैडिंग को अंदर रखने के लिए */
+}
+
+/* घड़ियों का साइज़ मोबाइल के लिए */
+.new-time { 
+    color: var(--neon); 
+    font-size: 1.8em; 
+    font-weight: bold; 
+    text-shadow: 0 0 20px var(--neon); 
+    word-break: break-all; 
+}
+
+#oldClock {
+    font-size: 1.3em !important;
+}
+
+/* टेबल को मोबाइल पर खिसकाने (Scroll) योग्य बनाया */
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 30px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.comparison-table { 
+    width: 100%; 
+    min-width: 500px; /* टेबल छोटी न हो, यूजर स्क्रॉल करके देख सके */
+    border-collapse: collapse; 
+    background: #1a1a1a; 
+}
+
+/* कार्ड्स को मोबाइल पर सीधा (Vertical) किया */
+.math-section { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    margin-top: 25px; 
+}
+
+.math-card { 
+    background: #1a1a1a; 
+    padding: 15px; 
+    border-radius: 12px; 
+    border: 1px solid #333; 
+}
+
+/* पॉप-अप (Modal) मोबाइल के लिए */
+.modal-content { 
+    background-color: white; 
+    margin: 10% auto; 
+    padding: 20px; 
+    border-radius: 10px; 
+    width: 90%; 
+    max-width: 700px; 
+    box-sizing: border-box; 
+    color: #000;
+    text-align: left;
+}
+
+/* बटन मोबाइल पर पूरे हाथ से दबे */
+.open-btn { 
+    width: 100%; 
+    max-width: 350px; 
+    padding: 15px; 
+    font-size: 18px; 
+}
+
+/* --- डेस्कटॉप के लिए ऑटोमैटिक सुधार (Media Query) --- */
+@media (min-width: 768px) {
+    .math-section { flex-direction: row; }
+    .math-card { flex: 1; }
+    .new-time { font-size: 3.2em; }
+    .container { padding: 30px; }
+    .open-btn { width: auto; }
+}
+
+        
     </style>
 </head>
 <body>
@@ -299,3 +398,4 @@ function openModal() { document.getElementById("myModal").style.display = "block
     </script>
 </body>
 </html>
+
