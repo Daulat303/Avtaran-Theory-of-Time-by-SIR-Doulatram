@@ -55,8 +55,6 @@
         .contact-link { color: var(--gold); text-decoration: none; font-weight: bold; }
         
         @media (max-width: 768px) { .math-section { grid-template-columns: 1fr; } .new-time { font-size: 1.8em; } }
-
-
 /* --- मोबाइल फ्रेंडली CSS (सिर्फ डिज़ाइन सुधार) --- */
 
 :root { --gold: #ffd700; --neon: #00ff00; --bg: #050505; --red: #ff4d4d; --blue: #00d4ff; }
@@ -152,8 +150,107 @@ body {
     .container { padding: 30px; }
     .open-btn { width: auto; }
 }
+/* मोबाइल के लिए शुद्ध तालमेल वाला CSS */
+:root { 
+    --gold: #ffd700; 
+    --neon: #00ff00; 
+    --bg: #050505; 
+    --red: #ff4d4d; 
+    --blue: #00d4ff; 
+}
 
-        
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background: var(--bg); 
+    color: #fff; 
+    text-align: center; 
+    padding: 10px; 
+    margin: 0; 
+    overflow-x: hidden; /* स्क्रीन से बाहर कंटेंट नहीं जाएगा */
+}
+
+.container { 
+    border: 4px solid var(--gold); 
+    padding: 15px; 
+    border-radius: 20px; 
+    background: #111; 
+    max-width: 100%; 
+    box-sizing: border-box; 
+    margin: auto; 
+}
+
+/* हेडिंग और टेक्स्ट जो स्क्रीन के हिसाब से एडजस्ट होंगे */
+h1 { font-size: clamp(1.1em, 5vw, 1.8em); color: var(--gold); }
+.author { color: #ccc; font-size: 0.85em; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+/* घड़ी और टाइमर का डिस्प्ले */
+.new-time { 
+    color: var(--neon); 
+    font-size: clamp(1.2em, 6vw, 2.5em); 
+    font-weight: bold; 
+    text-shadow: 0 0 15px var(--neon); 
+    font-family: 'Courier New', monospace; 
+    word-break: break-all; /* मोबाइल पर लाइन नहीं टूटेगी */
+}
+
+/* बॉक्स स्टाइल */
+.saving-box, .rebuilt-box { 
+    padding: 15px; 
+    border-radius: 15px; 
+    margin: 15px 0; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.saving-box { background: linear-gradient(135deg, #001a00, #002b00); border: 2px solid var(--neon); color: var(--neon); }
+.rebuilt-box { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; border: 2px solid #fff; }
+
+/* पॉप-अप (Modal) - मोबाइल पर पूरा दिखने के लिए */
+.modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.95); 
+    overflow-y: auto; 
+}
+
+.modal-content { 
+    background-color: white; 
+    color: #000; 
+    margin: 5% auto; 
+    padding: 20px; 
+    border-radius: 10px; 
+    width: 92%; 
+    box-sizing: border-box; 
+    text-align: left; 
+    font-size: 16px; /* पढ़ने में आसान */
+    line-height: 1.6;
+}
+
+/* बटन मोबाइल के लिए बड़े और दबाने में आसान */
+.open-btn { 
+    background-color: #007bff; 
+    color: white; 
+    padding: 16px; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-size: 1.1em; 
+    font-weight: bold; 
+    width: 100%; 
+    margin-top: 15px; 
+}
+
+/* टेबल को मोबाइल पर खिसकाने (Scroll) की सुविधा */
+.table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+@media (min-width: 768px) {
+    .container { max-width: 800px; }
+}
     </style>
 </head>
 <body>
@@ -398,4 +495,3 @@ function openModal() { document.getElementById("myModal").style.display = "block
     </script>
 </body>
 </html>
-
